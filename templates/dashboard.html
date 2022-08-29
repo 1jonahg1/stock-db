@@ -20,9 +20,8 @@
         dataType: 'json'
         })
       }
-
       $('.ui.modal').modal('hide');
-      
+      setTimeout(location.reload.bind(location), 5000);
     })
   });
 </script>
@@ -44,11 +43,22 @@
     <label>Above 200 day MA</label>
 </div>
 
-<button type="submit" class="ui button primary"> Filter </button>
+<button type="submit" class="primary"> Filter </button>
 </form>
 <div>
-  <button id="add_stocks" class="ui button">Add Stock</button>
+  <button id="add_stocks" class="button1">Add Stocks</button> 
+  <button id="delete_stocks" class="button2">Delete Stocks</button>
 </div>
+
+<style>
+  .button1 {background-color: #008CBA;} /* Blue */
+  .button2 {background-color: #f44336;} /* Red */ 
+  .primary {background-color: #91999c;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            } /* Gray */
+</style>
 
 <table class="ui celled table">
   <thead>
@@ -80,7 +90,7 @@
 <div class="ui modal">
     <i class="close icon"></i>
     <div class="header">
-      Add Stock Symbol
+      Add Stock Symbols
     </div>
     <div class="content">
       <div class="ui form">
@@ -97,4 +107,6 @@
       </div>
     </div>
   </div>
+
+
 {% endblock %}
