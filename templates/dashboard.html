@@ -5,7 +5,7 @@
 <script>
   $(document).ready(function() { 
     $("#add_stocks").click(function(){
-      $('.ui.modal').modal('show');
+      $('#new').modal('show');
     })
     $("#save").click(function(){
       var symbols = $("#symbols").val();
@@ -20,11 +20,11 @@
         dataType: 'json'
         })
       }
-      $('.ui.modal').modal('hide');
+      $('#new').modal('hide');
       setTimeout(location.reload.bind(location), 5000);
     })
     $("#delete_stocks").click(function(){
-      $('.ui.modal2').modal('show');
+      $('#delete').modal('show');
     })
     $("#save2").click(function(){
       var symbols2 = $("#symbols2").val();
@@ -39,7 +39,7 @@
         dataType: 'json'
         })
       }
-      $('.ui.modal2').modal('hide');
+      $('#delete').modal('hide');
       setTimeout(location.reload.bind(location), 5000);
     })
   });
@@ -106,7 +106,7 @@
   </tbody>
 </table>
 
-<div class="ui modal">
+<div id="new" class="ui modal">
     <i class="close icon"></i>
     <div class="header">
       Add Stock Symbols
@@ -127,7 +127,7 @@
     </div>
   </div>
 
-<div class="ui modal">
+<div id="delete" class="ui modal">
   <i class="close icon"></i>
   <div class="header">
     Remove Stock Symbols
