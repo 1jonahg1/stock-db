@@ -23,6 +23,25 @@
       $('.ui.modal').modal('hide');
       setTimeout(location.reload.bind(location), 5000);
     })
+    $("#delete_stocks").click(function(){
+      $('.ui.modal2').modal('show');
+    })
+    $("#save2").click(function(){
+      var symbols2 = $("#symbols2").val();
+
+      var stockSymbols2 = symbols2.split("\n");
+      for (var i=0; i<stockSymbols2.length; ++i){
+        $.ajax({
+        url: '/stock',
+        type: 'Delete',
+        contentType: 'application/json',
+        data: JSON.stringify({"symbol": stockSymbols2[i]}),
+        dataType: 'json'
+        })
+      }
+      $('.ui.modal2').modal('hide');
+      setTimeout(location.reload.bind(location), 5000);
+    })
   });
 </script>
 
@@ -108,5 +127,24 @@
     </div>
   </div>
 
-
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Remove Stock Symbols
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Enter stock Symbols</label>
+        <textarea id="symbols"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div id="save2" class="ui negative right labeled icon button">
+      Remove Symbols
+      <i class="minus icon"></i>
+    </div>
+  </div>
+</div>
 {% endblock %}

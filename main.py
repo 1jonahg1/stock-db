@@ -89,3 +89,19 @@ async def create_stock(stock_request: StockRequest, background_tasks: Background
         "code": "success",
         "message": "stock was added to the database"
     }
+@app.post("/stock")
+
+async def delete_stock(stock_request: StockRequest, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):  #Depends-function depends on getting session
+    """
+    Deletes a stock and removes it from the DB
+    """
+    stock = Stock()
+    stock.symbol = stock_request.symbol
+    db.add(stock)
+    db.delete(stock) #make sure deletes
+    db.flush() #make sure completes deletion
+
+    return {
+        "code": "success",
+        "message": "stock was removed to the database"
+    }

@@ -1,0 +1,6 @@
+add the api's used - 
+    fast api for web requests 
+    sqlalchemy for db
+    semantic for html
+    yfinance for stock info
+    pydantic
