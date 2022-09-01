@@ -23,7 +23,7 @@ def get_db():
     finally:
         db.close
 
-@app.get("/")
+@app.get("/", response_description="Succesfully Accessed Stock Info")
 def dashboard(request: Request, forward_pe = None, dividend_yield = None, ma50 = None, ma200 = None, db: Session = Depends(get_db)):
     """
     Displays the stock screener Dashboard
@@ -73,7 +73,7 @@ def fetch_stock_data(id: int):
     db.commit()
 
 
-@app.post("/stock")
+@app.post("/stock", response_description="Succesfully Posted Stock")
 async def create_stock(stock_request: StockRequest, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):  #Depends-function depends on getting session
     """
     Creates a stock and stores it in the DB
@@ -90,7 +90,7 @@ async def create_stock(stock_request: StockRequest, background_tasks: Background
         "message": "stock was added to the database"
     }
 
-@app.delete("/stock")
+@app.delete("/stock", response_description="Succesfully Deleted Stock")
 async def delete_stock(stock_request: StockRequest, db: Session = Depends(get_db)):  #Depends-function depends on getting session
     """
     Deletes a stock and removes it from the DB
