@@ -6,4 +6,4 @@ The site runs on fast api (with minor use of pydantic) and is presented with sem
 The stock info is acquired through the yfinance api and stored with sqlalchemy. 
 The app is deployed with a Docker.
 
-![webpage](https://user-images.githubusercont ent.com/13869543/187284993-6952566b-a120-416a-a550-51081d4f9933.PNG)
+![image](https://user-images.githubusercontent.com/13869543/208320590-ae125efd-f84c-4e00-85e0-8a7737a71606.png)
